@@ -33,20 +33,18 @@ Listening on 9001
 Listening on 9002
 ```
 
-Or 
-
-```dockerfile
-FROM ubuntu
-COPY httphey /usr/local/bin/
-USER nobody
-#ENTRYPOINT ["httphey"]
-ENTRYPOINT ["httphey","9001","9002"]
-```
-
 Or
 
 ```
 $ docker run -d --network host rwxrob/httphey
 curl localhost:8000
 curl localhost:8080
+```
+
+Or
+
+```
+$ docker run -d --network host rwxrob/httphey 9001 9002
+curl localhost:9001
+curl localhost:9002
 ```
